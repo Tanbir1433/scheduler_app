@@ -107,7 +107,7 @@ class HistoryScreen extends ConsumerWidget {
                   ? Center(
                       child: Text(
                         'No History Yet',
-                        style: AppText().bodyMedium.copyWith(color: AppColor.appWhite.withOpacity(0.3)),
+                        style: AppText().bodyMedium.copyWith(color: AppColor.appWhite.withOpacity(0.6)),
                       ),
                     )
                   : ListView.builder(

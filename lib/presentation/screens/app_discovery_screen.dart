@@ -142,7 +142,7 @@ class _AppDiscoveryScreenState extends ConsumerState<AppDiscoveryScreen> {
                     return Center(
                       child: Text(
                         'No apps found',
-                        style: AppText().bodyMedium.copyWith(color: AppColor.appWhite.withOpacity(0.3)),
+                        style: AppText().bodyMedium.copyWith(color: AppColor.appWhite.withOpacity(0.6)),
                       ),
                     );
                   }
