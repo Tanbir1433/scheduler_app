@@ -16,7 +16,6 @@ class AppSchedulerApp extends StatelessWidget {
           primary: Color(0xFF6C63FF),
           secondary: Color(0xFF03DAC6),
           surface: Color(0xFF1A1A2E),
-          background: Color(0xFF0A0A0F),
         ),
         useMaterial3: true,
         fontFamily: 'monospace',

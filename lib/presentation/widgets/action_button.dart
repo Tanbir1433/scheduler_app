@@ -1,3 +1,4 @@
+import 'package:app_scheduler/core/theme/text_config.dart';
 import 'package:flutter/material.dart';
 
 class ActionButton extends StatelessWidget {
@@ -25,10 +26,12 @@ class ActionButton extends StatelessWidget {
           border: Border.all(color: color.withOpacity(0.3)),
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Icon(icon, size: 14, color: color),
             const SizedBox(width: 5),
-            Text(label, style: TextStyle(fontSize: 12, color: color, fontWeight: FontWeight.w600)),
+            Text(label, style: AppText().bodyMedium.copyWith(color: color)),
           ],
         ),
       ),

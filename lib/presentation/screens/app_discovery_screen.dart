@@ -87,10 +87,10 @@ class _AppDiscoveryScreenState extends ConsumerState<AppDiscoveryScreen> {
                   ///================================= Search Field =============================
                   Container(
                     decoration: BoxDecoration(
-                      color: AppColor.primaryColor.withOpacity(0.05),
+                      // color: AppColor.primaryColor.withOpacity(0.05),
                       borderRadius: BorderRadius.circular(15),
                       border: Border.all(
-                        color: AppColor.primaryColor.withOpacity(0.2),
+                        color: AppColor.primaryColor.withOpacity(0.3),
                       ),
                     ),
                     child: TextField(

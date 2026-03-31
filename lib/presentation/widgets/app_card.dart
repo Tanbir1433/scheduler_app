@@ -20,9 +20,9 @@ class AppCard extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 10),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         decoration: BoxDecoration(
-          color:AppColor.primaryColor.withOpacity(0.05),
+          // color:AppColor.primaryColor.withOpacity(0.05),
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: AppColor.primaryColor.withOpacity(0.2)),
+          border: Border.all(color: AppColor.primaryColor.withOpacity(0.3)),
         ),
         child: Row(
           children: [

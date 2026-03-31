@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:r_icon_pro/r_icon_pro.dart';
-import '../../domain/entities/schedule_entity.dart';
 import '../providers/schedule_provider.dart';
 import '../widgets/schedule_card.dart';
 import 'app_discovery_screen.dart';
@@ -58,9 +57,11 @@ class ScheduleScreen extends ConsumerWidget {
                       height: 48,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
-                          colors: [AppColor.primaryColor, AppColor.secondaryColor],
+                          colors: [AppColor.secondaryColor, AppColor.primaryColor],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
                         ),
-                        borderRadius: BorderRadius.circular(14),
+                        borderRadius: BorderRadius.circular(15),
                       ),
                       child: const Icon(RIcon.Add_Circle, color: Colors.white),
                     ),

@@ -20,10 +20,9 @@ class HistoryCard extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: AppColor.primaryColor.withOpacity(0.05),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColor.primaryColor.withOpacity(0.15),
+          color: AppColor.primaryColor.withOpacity(0.3),
         ),
       ),
       child: Row(
