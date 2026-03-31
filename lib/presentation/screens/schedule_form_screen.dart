@@ -303,7 +303,7 @@ class _ScheduleFormScreenState extends ConsumerState<ScheduleFormScreen> {
 
 
 
-      ///========================= Cancel or Save Schedule Button ===========================
+      ///========================= Cancel or Save Button ===========================
 
       bottomNavigationBar: SizedBox(
         height: 100,
@@ -335,7 +335,7 @@ class _ScheduleFormScreenState extends ConsumerState<ScheduleFormScreen> {
                     ),
                     child: Center(
                       child: Text(
-                        isEdit ? 'Update Schedule'.toUpperCase() : 'Save Schedule'.toUpperCase(),
+                        isEdit ? 'Update'.toUpperCase() : 'Save'.toUpperCase(),
                         style: AppText().bodyLarge.copyWith(
                               color: _hasConflict ? AppColor.primaryBlack.withOpacity(0.3) : AppColor.primaryBlack,
                             ),

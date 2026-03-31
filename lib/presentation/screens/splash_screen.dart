@@ -1,30 +1,44 @@
 import 'package:app_scheduler/core/theme/app_color_config.dart';
 import 'package:app_scheduler/core/theme/text_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../providers/app_icon_provider.dart';
 import 'main_nav_screen.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  ConsumerState<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+class _SplashScreenState extends ConsumerState<SplashScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _fadeAnim;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 1200));
-    _fadeAnim = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
+    _controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 1200));
+    _fadeAnim =
+        CurvedAnimation(parent: _controller, curve: Curves.easeIn);
     _controller.forward();
-    Future.delayed(const Duration(seconds: 2), () {
-      if (mounted) {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const MainNavScreen()));
-      }
-    });
+    _preloadAndNavigate();
+  }
+
+  Future<void> _preloadAndNavigate() async {
+    await Future.wait([
+      ref.read(allAppIconsProvider.future),
+      Future.delayed(const Duration(seconds: 2)),
+    ]);
+    if (mounted) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => const MainNavScreen()),
+      );
+    }
   }
 
   @override
@@ -35,6 +49,9 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
+
+    ///=========================== Body ==========================
+
     return Scaffold(
       backgroundColor: AppColor.background,
       body: FadeTransition(
@@ -54,24 +71,27 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     end: Alignment.bottomRight,
                   ),
                 ),
-                child: const Icon(Icons.schedule_rounded, size: 48, color: Colors.white),
+                child: const Icon(Icons.schedule_rounded,
+                    size: 48, color: Colors.white),
               ),
               const SizedBox(height: 24),
-              Text(
-                'App Scheduler',
-                style: AppText().headerLine1,
-              ),
+              Text('App Scheduler', style: AppText().headerLine1),
               const SizedBox(height: 8),
-              Text('Automate your routines', style: AppText().bodyMedium.copyWith(color: AppColor.appWhite.withOpacity(0.6))),
-              const SizedBox(height: 48),
-              SizedBox(
-                width: 36,
-                height: 36,
-                child: CircularProgressIndicator(
-                  strokeWidth: 2.5,
-                  valueColor: AlwaysStoppedAnimation<Color>(AppColor.primaryColor),
-                ),
+              Text(
+                'Automate your routines',
+                style: AppText().bodyMedium.copyWith(
+                    color: AppColor.appWhite.withOpacity(0.6)),
               ),
+              const SizedBox(height: 48),
+              // SizedBox(
+              //   width: 36,
+              //   height: 36,
+              //   child: CircularProgressIndicator(
+              //     strokeWidth: 2.5,
+              //     valueColor:
+              //     AlwaysStoppedAnimation<Color>(AppColor.primaryColor),
+              //   ),
+              // ),
             ],
           ),
         ),

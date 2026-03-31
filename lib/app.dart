@@ -1,3 +1,4 @@
+import 'package:app_scheduler/core/theme/app_color_config.dart';
 import 'package:flutter/material.dart';
 import 'presentation/screens/splash_screen.dart';
 
@@ -13,8 +14,8 @@ class AppSchedulerApp extends StatelessWidget {
         brightness: Brightness.dark,
         scaffoldBackgroundColor: const Color(0xFF0A0A0F),
         colorScheme: const ColorScheme.dark(
-          primary: Color(0xFF6C63FF),
-          secondary: Color(0xFF03DAC6),
+          primary: AppColor.secondaryColor,
+          secondary: AppColor.primaryColor,
           surface: Color(0xFF1A1A2E),
         ),
         useMaterial3: true,

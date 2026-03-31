@@ -34,4 +34,18 @@ class AppLocalDatasource {
       };
     }).toList();
   }
+
+  Future<String?> getAppIcon(String packageName) async {
+    try {
+      final List result = await _channel.invokeMethod('getInstalledApps');
+      final app = result.firstWhere(
+            (e) => Map<String, dynamic>.from(e)['packageName'] == packageName,
+        orElse: () => null,
+      );
+      if (app == null) return null;
+      return Map<String, dynamic>.from(app)['icon'] as String?;
+    } catch (_) {
+      return null;
+    }
+  }
 }

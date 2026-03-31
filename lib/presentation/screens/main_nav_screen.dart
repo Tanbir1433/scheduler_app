@@ -5,6 +5,7 @@ import 'package:r_icon_pro/r_icon_pro.dart';
 import 'package:uuid/uuid.dart';
 import '../../data/datasources/app_local_datasource.dart';
 import '../../domain/entities/history_entity.dart';
+import '../providers/app_icon_provider.dart';
 import '../providers/history_provider.dart';
 import '../providers/schedule_provider.dart';
 import '../widgets/nav_item.dart';
@@ -35,6 +36,9 @@ class _MainNavScreenState extends ConsumerState<MainNavScreen> with WidgetsBindi
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(allAppIconsProvider);
+    });
     WidgetsBinding.instance.addObserver(this);
     _checkPendingHistory();
   }
