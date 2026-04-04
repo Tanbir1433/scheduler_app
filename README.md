@@ -1,9 +1,10 @@
-📱 App Scheduler
+# 📱 App Scheduler
 
 A Flutter app that lets you schedule any installed Android app to launch automatically at a specific time.
 
+---
 
- ✨ Features
+## ✨ Features
 
 - 📋 View all installed apps on your device
 - ⏰ Schedule any app to open at a specific date & time
@@ -13,9 +14,12 @@ A Flutter app that lets you schedule any installed Android app to launch automat
 - 🚀 Auto-launch when app is in foreground
 - 📜 History of completed schedules
 
+---
 
- 🛠️ Tech Stack
+## 🛠️ Tech Stack
 
+| | |
+|---|---|
 | Framework | Flutter |
 | Language | Dart + Kotlin |
 | State Management | Riverpod |
@@ -23,11 +27,11 @@ A Flutter app that lets you schedule any installed Android app to launch automat
 | Architecture | Clean Architecture |
 | Background | Native Android AlarmManager |
 
+---
 
+## 📁 Folder Structure
 
-📁 Folder Structure
-
-
+```
 lib/
 ├── main.dart
 ├── app.dart
@@ -46,51 +50,70 @@ lib/
 
 android/app/src/main/kotlin/
 └── MainActivity.kt         # Native app list, alarm & notification logic
+```
 
+---
 
-🚀 Getting Started
+## 🚀 Getting Started
 
-Prerequisites
+### Prerequisites
 
-- Flutter SDK `>=3.11.0`
+- Flutter SDK `>=3.0.0`
 - Android device or emulator (API 21+)
 - Java 17
 
-Installation
+### Installation
 
-bash
-1. Clone the repo
+```bash
+# 1. Clone the repo
 git clone https://github.com/Tanbir1433/scheduler_app
 cd app_scheduler
 
-2. Install packages
+# 2. Install packages
 flutter pub get
 
-3. Generate Hive & Freezed files
+# 3. Generate Hive & Freezed files
 flutter pub run build_runner build --delete-conflicting-outputs
 
-4. Run the app
+# 4. Run the app
 flutter run
+```
 
-
-First Launch Setup
+### First Launch Setup
 
 When the app opens for the first time:
 
-1. Allow notification permission when prompted
-2. Allow battery optimization bypass when prompted
+1. **Allow notification permission** when prompted
+2. **Allow battery optimization** bypass when prompted
 3. On Samsung devices → `Settings → Apps → App Scheduler → Battery → Unrestricted`
 
+---
 
+## 📸 Screenshots
 
-- Android only — iOS is not supported
-- Android 12+ — Direct background app launch is blocked by the OS. A tap-to-open notification is shown instead
-- Samsung devices — May require manual battery settings for reliable background execution
+> Add at least 3 screenshots inside a `screenshots/` folder
 
+---
 
-Challenges & Solutions
+## ⚠️ Known Limitations
 
-Third-party app list packages were outdated | Built a custom Platform Channel in Kotlin 
-Background app launch blocked on Android 12+ | Used Foreground Service + Notification 
-Samsung aggressively killing background service | WakeLock + Battery optimization bypass 
-Notification not showing after reinstall | Deleted broken channels, added `POST_NOTIFICATIONS` permission 
+- **Android only** — iOS is not supported
+- **Android 12+** — Direct background app launch is blocked by the OS. A tap-to-open notification is shown instead
+- **Samsung devices** — May require manual battery settings for reliable background execution
+
+---
+
+## 🐛 Challenges & Solutions
+
+| Challenge | Solution |
+|---|---|
+| Third-party app list packages were outdated | Built a custom Platform Channel in Kotlin |
+| Background app launch blocked on Android 12+ | Used Foreground Service + Notification |
+| Samsung aggressively killing background service | WakeLock + Battery optimization bypass |
+| Notification not showing after reinstall | Deleted broken channels, added `POST_NOTIFICATIONS` permission |
+
+---
+
+## 📄 License
+
+MIT
