@@ -87,6 +87,19 @@ When the app opens for the first time:
 2. **Allow battery optimization** bypass when prompted
 3. On Samsung devices → `Settings → Apps → App Scheduler → Battery → Unrestricted`
 
+---
+
+## 📸 Screenshots
+
+| History | Schedule | Apps |
+|--------|----------|------|
+| <img src="screenshots/history.png" width="200"/> | <img src="screenshots/Schedule.png" width="200"/> | <img src="screenshots/installed_apps.png" width="200"/> |
+
+| Schedule Form | Search |
+|---------------|---------|
+| <img src="screenshots/schedule_form.png" width="200"/> | <img src="screenshots/Search.png" width="200"/> |
+
+---
 
 ## ⚠️ Known Limitations
 
@@ -106,3 +119,7 @@ When the app opens for the first time:
 | Notification not showing after reinstall | Deleted broken channels, added `POST_NOTIFICATIONS` permission |
 
 ---
+
+## 📄 License
+
+MIT
