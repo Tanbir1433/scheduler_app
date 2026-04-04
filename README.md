@@ -91,8 +91,8 @@ When the app opens for the first time:
 
 ## 📸 Screenshots
 
-| Schedule | Apps | History |
-|--------|----------|------|
+| Schedule | Installed Apps | History |
+|--------|--------------------------------------------------------|------|
 | <img src="screenshots/Schedule.png" width="200"/> | <img src="screenshots/installed_apps.png" width="200"/> | <img src="screenshots/history.png" width="200"/> |
 
 | Schedule Form | Search |
@@ -119,7 +119,3 @@ When the app opens for the first time:
 | Notification not showing after reinstall | Deleted broken channels, added `POST_NOTIFICATIONS` permission |
 
 ---
-
-## 📄 License
-
-MIT
