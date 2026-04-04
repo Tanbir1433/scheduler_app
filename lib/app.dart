@@ -12,11 +12,11 @@ class AppSchedulerApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,
-        scaffoldBackgroundColor: const Color(0xFF0A0A0F),
+        scaffoldBackgroundColor: AppColor.background,
         colorScheme: const ColorScheme.dark(
           primary: AppColor.secondaryColor,
           secondary: AppColor.primaryColor,
-          surface: Color(0xFF1A1A2E),
+          surface: AppColor.bgLight,
         ),
         useMaterial3: true,
         fontFamily: 'monospace',
