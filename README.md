@@ -87,13 +87,6 @@ When the app opens for the first time:
 2. **Allow battery optimization** bypass when prompted
 3. On Samsung devices → `Settings → Apps → App Scheduler → Battery → Unrestricted`
 
----
-
-## 📸 Screenshots
-
-> Add at least 3 screenshots inside a `screenshots/` folder
-
----
 
 ## ⚠️ Known Limitations
 
