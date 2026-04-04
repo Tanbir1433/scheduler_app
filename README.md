@@ -106,7 +106,3 @@ When the app opens for the first time:
 | Notification not showing after reinstall | Deleted broken channels, added `POST_NOTIFICATIONS` permission |
 
 ---
-
-## 📄 License
-
-MIT
