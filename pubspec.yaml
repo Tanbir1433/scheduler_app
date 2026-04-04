@@ -18,6 +18,8 @@ dependencies:
   intl: ^0.19.0
   google_fonts: ^8.0.2
   r_icon_pro: ^1.0.3
+  flutter_launcher_icons: ^0.14.4
+
 
 dev_dependencies:
   flutter_test:
@@ -30,3 +32,19 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
+
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/logo.png"
+  remove_alpha_ios: true
+  min_sdk_android: 21
+  background_color: "#FF8152"
+  web:
+    generate: true
+    image_path: "assets/images/logo.png"
+    background_color: "#FF8152"
+    theme_color: "#FF8152"

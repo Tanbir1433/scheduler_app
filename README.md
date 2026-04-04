@@ -52,7 +52,7 @@ android/app/src/main/kotlin/
 
 Prerequisites
 
-- Flutter SDK `>=3.0.0`
+- Flutter SDK `>=3.11.0`
 - Android device or emulator (API 21+)
 - Java 17
 
