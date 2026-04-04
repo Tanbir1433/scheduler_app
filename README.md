@@ -91,9 +91,9 @@ When the app opens for the first time:
 
 ## 📸 Screenshots
 
-| History | Schedule | Apps |
+| Schedule | Apps | History |
 |--------|----------|------|
-| <img src="screenshots/history.png" width="200"/> | <img src="screenshots/Schedule.png" width="200"/> | <img src="screenshots/installed_apps.png" width="200"/> |
+| <img src="screenshots/Schedule.png" width="200"/> | <img src="screenshots/installed_apps.png" width="200"/> | <img src="screenshots/history.png" width="200"/> |
 
 | Schedule Form | Search |
 |---------------|---------|
