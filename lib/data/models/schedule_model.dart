@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../../domain/entities/schedule_entity.dart';
-
 part 'schedule_model.freezed.dart';
 part 'schedule_model.g.dart';
 
@@ -17,8 +16,7 @@ class ScheduleModel with _$ScheduleModel {
     @HiveField(5) @Default(false) bool isRepeating,
   }) = _ScheduleModel;
 
-  factory ScheduleModel.fromJson(Map<String, dynamic> json) =>
-      _$ScheduleModelFromJson(json);
+  factory ScheduleModel.fromJson(Map<String, dynamic> json) => _$ScheduleModelFromJson(json);
 }
 
 extension ScheduleModelX on ScheduleModel {

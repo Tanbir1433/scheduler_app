@@ -154,6 +154,9 @@ class _ScheduleFormScreenState extends ConsumerState<ScheduleFormScreen> {
         ),
         centerTitle: true,
       ),
+
+      ///========================= Body  ===========================
+
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(

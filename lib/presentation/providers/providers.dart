@@ -18,15 +18,9 @@ final appDatasourceProvider = Provider((_) => AppLocalDatasource());
 final scheduleDatasourceProvider = Provider((_) => ScheduleLocalDatasource());
 final historyDatasourceProvider = Provider((_) => HistoryLocalDatasource());
 
-final appRepositoryProvider = Provider<AppRepository>(
-  (ref) => AppRepositoryImpl(ref.read(appDatasourceProvider)),
-);
-final scheduleRepositoryProvider = Provider<ScheduleRepository>(
-  (ref) => ScheduleRepositoryImpl(ref.read(scheduleDatasourceProvider)),
-);
-final historyRepositoryProvider = Provider<HistoryRepository>(
-  (ref) => HistoryRepositoryImpl(ref.read(historyDatasourceProvider)),
-);
+final appRepositoryProvider = Provider<AppRepository>((ref) => AppRepositoryImpl(ref.read(appDatasourceProvider)));
+final scheduleRepositoryProvider = Provider<ScheduleRepository>((ref) => ScheduleRepositoryImpl(ref.read(scheduleDatasourceProvider)));
+final historyRepositoryProvider = Provider<HistoryRepository>((ref) => HistoryRepositoryImpl(ref.read(historyDatasourceProvider)));
 
 final getInstalledAppsProvider = Provider((ref) => GetInstalledApps(ref.read(appRepositoryProvider)));
 final saveScheduleProvider = Provider((ref) => SaveSchedule(ref.read(scheduleRepositoryProvider)));

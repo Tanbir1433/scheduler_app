@@ -2,7 +2,13 @@ import 'package:flutter/services.dart';
 import '../../domain/entities/app_info.dart';
 
 class AppLocalDatasource {
+
+
+  ///---------------------- Android label calling ------------------------
   static const _channel = MethodChannel('com.example.app_scheduler/apps');
+
+
+  ///---------------------- Get Installed Apps From Android Function ------------------------
 
   Future<List<AppInfo>> getInstalledApps() async {
     final List result = await _channel.invokeMethod('getInstalledApps');
@@ -16,9 +22,15 @@ class AppLocalDatasource {
     }).toList();
   }
 
+
+  ///---------------------- Ope App ------------------------
+
   Future<void> openApp(String packageName) async {
     await _channel.invokeMethod('openApp', {'packageName': packageName});
   }
+
+
+  ///---------------------- Get Pending History ------------------------
 
   Future<List<Map<String, String>>> getPendingHistory() async {
     final String raw =
@@ -34,6 +46,9 @@ class AppLocalDatasource {
       };
     }).toList();
   }
+
+
+  ///---------------------- Get APP Icon ------------------------
 
   Future<String?> getAppIcon(String packageName) async {
     try {

@@ -6,14 +6,22 @@ import '../models/schedule_model.dart';
 
 class ScheduleRepositoryImpl implements ScheduleRepository {
   final ScheduleLocalDatasource datasource;
+
+
+  ///---------------------- Android label calling ------------------------
   static const _channel = MethodChannel('com.example.app_scheduler/apps');
 
   ScheduleRepositoryImpl(this.datasource);
+
+
+  ///---------------------- Get Schedule ------------------------
 
   @override
   Future<List<ScheduleEntity>> getSchedules() async {
     return datasource.getAll().map((m) => m.toEntity()).toList()..sort((a, b) => a.scheduledTime.compareTo(b.scheduledTime));
   }
+
+  ///---------------------- Save Schedule ------------------------
 
   @override
   Future<void> saveSchedule(ScheduleEntity schedule) async {
@@ -27,12 +35,18 @@ class ScheduleRepositoryImpl implements ScheduleRepository {
     });
   }
 
+
+  ///---------------------- Delete Schedule ------------------------
+
   @override
   Future<void> deleteSchedule(String id) async {
     await datasource.delete(id);
     final alarmId = id.hashCode.abs() % 2147483647;
     await _channel.invokeMethod('cancelAlarm', {'alarmId': alarmId});
   }
+
+
+  ///---------------------- Has Conflict Schedule ------------------------
 
   @override
   bool hasConflict(DateTime time, {String? excludeId}) {

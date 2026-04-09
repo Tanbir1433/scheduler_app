@@ -8,11 +8,22 @@ import 'data/models/history_model.dart';
 import 'data/models/schedule_model.dart';
 
 void main() async {
+
+
+  ///--------------------- Dependency init -------------------
   WidgetsFlutterBinding.ensureInitialized();
+
+
   await Hive.initFlutter();
   Hive.registerAdapter(ScheduleModelAdapter());
   Hive.registerAdapter(HistoryModelAdapter());
   await Hive.openBox<ScheduleModel>(AppConstants.schedulesBox);
   await Hive.openBox<HistoryModel>(HistoryLocalDatasource.boxName);
+
+
+
   runApp(const ProviderScope(child: AppSchedulerApp()));
+
+
+
 }

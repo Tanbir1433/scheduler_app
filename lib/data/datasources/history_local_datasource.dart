@@ -1,8 +1,13 @@
+import 'package:app_scheduler/core/constants/app_constants.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../models/history_model.dart';
 
 class HistoryLocalDatasource {
-  static const boxName = 'history_box';
+
+
+
+  ///---------------------- History ------------------------
+  static const boxName = AppConstants.historyBox;
 
   Box<HistoryModel> get _box => Hive.box<HistoryModel>(boxName);
 

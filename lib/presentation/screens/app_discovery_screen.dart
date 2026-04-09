@@ -30,19 +30,9 @@ class _AppDiscoveryScreenState extends ConsumerState<AppDiscoveryScreen> {
 
   void _onAppTap(AppInfo app) {
     if (widget.isSelecting) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (_) => ScheduleFormScreen(selectedApp: app),
-        ),
-      );
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => ScheduleFormScreen(selectedApp: app)));
     } else {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (_) => ScheduleFormScreen(selectedApp: app),
-        ),
-      );
+      Navigator.push(context, MaterialPageRoute(builder: (_) => ScheduleFormScreen(selectedApp: app)));
     }
   }
 
@@ -69,10 +59,7 @@ class _AppDiscoveryScreenState extends ConsumerState<AppDiscoveryScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              widget.isSelecting ? 'Select App' : 'Installed Apps',
-                              style: AppText().headerLine1,
-                            ),
+                            Text(widget.isSelecting ? 'Select App' : 'Installed Apps', style: AppText().headerLine1),
                             Text(
                               widget.isSelecting ? 'Choose app to schedule' : 'Tap any app to schedule it',
                               style: AppText().bodyMedium.copyWith(color: AppColor.appWhite.withAlpha(100)),
@@ -89,9 +76,7 @@ class _AppDiscoveryScreenState extends ConsumerState<AppDiscoveryScreen> {
                     decoration: BoxDecoration(
                       // color: AppColor.primaryColor.withOpacity(0.05),
                       borderRadius: BorderRadius.circular(15),
-                      border: Border.all(
-                        color: AppColor.primaryColor.withOpacity(0.3),
-                      ),
+                      border: Border.all(color: AppColor.primaryColor.withOpacity(0.3)),
                     ),
                     child: TextField(
                       controller: _controller,
@@ -99,10 +84,7 @@ class _AppDiscoveryScreenState extends ConsumerState<AppDiscoveryScreen> {
                       decoration: InputDecoration(
                         hintText: 'Search apps...',
                         hintStyle: AppText().bodyMediumBold.copyWith(color: AppColor.appWhite.withOpacity(0.4)),
-                        prefixIcon: Icon(
-                          RIcon.Rounded_Magnifer,
-                          color: AppColor.appWhite.withOpacity(0.4),
-                        ),
+                        prefixIcon: Icon(RIcon.Rounded_Magnifer, color: AppColor.appWhite.withOpacity(0.4)),
                         suffixIcon: _query.isNotEmpty
                             ? IconButton(
                                 icon: Icon(Icons.clear_rounded, color: AppColor.appWhite.withOpacity(0.4)),
@@ -123,37 +105,27 @@ class _AppDiscoveryScreenState extends ConsumerState<AppDiscoveryScreen> {
             ),
 
             ///================================= App List =============================
-
             Expanded(
               child: appsAsync.when(
-                loading: () => const Center(
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation(AppColor.primaryColor),
-                  ),
-                ),
+                loading: () => const Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation(AppColor.primaryColor))),
                 error: (e, _) => Center(
                   child: Text('Error: $e', style: TextStyle(color: AppColor.appRed)),
                 ),
                 data: (apps) {
-                  final filtered =
-                      apps.where((a) => a.appName.toLowerCase().contains(_query) || a.packageName.toLowerCase().contains(_query)).toList();
+                  final filtered = apps
+                      .where((a) => a.appName.toLowerCase().contains(_query) || a.packageName.toLowerCase().contains(_query))
+                      .toList();
 
                   if (filtered.isEmpty) {
                     return Center(
-                      child: Text(
-                        'No apps found',
-                        style: AppText().bodyMedium.copyWith(color: AppColor.appWhite.withOpacity(0.6)),
-                      ),
+                      child: Text('No apps found', style: AppText().bodyMedium.copyWith(color: AppColor.appWhite.withOpacity(0.6))),
                     );
                   }
 
                   return ListView.builder(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     itemCount: filtered.length,
-                    itemBuilder: (_, i) => AppCard(
-                      app: filtered[i],
-                      onTap: () => _onAppTap(filtered[i]),
-                    ),
+                    itemBuilder: (_, i) => AppCard(app: filtered[i], onTap: () => _onAppTap(filtered[i])),
                   );
                 },
               ),
